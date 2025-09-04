@@ -8,8 +8,8 @@ import { menuData } from "./menuData";
 function AppRoutes() {
   return (
     <Routes>
-      {menuData.map((ch) =>
-        ch.items.map((it) => (
+      {menuData.map(ch =>
+        ch.items.map(it => (
           <Route key={it.path} path={it.path} element={it.element} />
         ))
       )}

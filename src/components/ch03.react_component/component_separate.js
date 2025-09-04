@@ -10,9 +10,15 @@ function Content() {
   return (
     <nav>
       <ul>
-        <li><a color="green" href="https://naver.com">네이버</a></li>
-        <li><a href="https://google.com">구글</a></li>
-        <li><a href="https://daum.net">다음</a></li>
+        <li>
+          <a href="https://naver.com">네이버</a>
+        </li>
+        <li>
+          <a href="https://google.com">구글</a>
+        </li>
+        <li>
+          <a href="https://daum.net">다음</a>
+        </li>
       </ul>
     </nav>
   );
@@ -25,8 +31,6 @@ function Bottom() {
     </article>
   );
 }
-
-
 
 function App() {
   console.log("컴포넌트별 분리하기");
