@@ -18,19 +18,20 @@ function App() {
   
   return (
     <div style={{paddingTop:"30px"}}>
-    <table border="1">
-      <thead bgcolor="#f1c7fa">
-        <tr>
-          <th width="60">아이디</th>
-          <th width="100">이름</th>
-          <th width="50">가격</th>
-          <th width="510">세부설명</th>
-        </tr>
-      </thead>
-      <tbody>
-        {trList}
-      </tbody>
-    </table></div>
+      <table border="1">
+        <thead bgcolor="#f1c7fa">
+          <tr>
+            <th width="60">아이디</th>
+            <th width="100">이름</th>
+            <th width="50">가격</th>
+            <th width="510">세부설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          {trList}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

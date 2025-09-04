@@ -14,6 +14,7 @@ import AppComponentSeparate from '../components/ch03.react_component/component_s
 import AppFileSeparator from '../components/ch03.react_component/file_separator';
 import AppUseProps from '../components/ch03.react_component/use_props';
 import AppArrayAndTable from '../components/ch03.react_component/array_and_table_01';
+import AppArrayAndTable2 from '../components/ch03.react_component/array_and_table_02';
 
 // export 키워드는 외부에서 참조 가능하도록 길을 틔워줌
 export const menuData = [
@@ -38,6 +39,7 @@ export const menuData = [
       { path: '/file_separator', label: '파일 분리하기', element: <AppFileSeparator /> },
       { path: '/use_props', label: 'props 사용하기', element: <AppUseProps /> },
       { path: '/array_and_table_01', label: '테이블 만들기 01', element: <AppArrayAndTable /> },
+      { path: '/array_and_table_02', label: '테이블 만들기 02', element: <AppArrayAndTable2 /> },
     ]
   },
   // 여기에 4장, 5장... 내용을 계속 추가하면 됩니다.
