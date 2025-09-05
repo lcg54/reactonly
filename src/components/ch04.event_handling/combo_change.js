@@ -1,55 +1,67 @@
+import React, { useState } from 'react';
+
 function App() {
-  const ChangeEvent = (event) => {
-    // const eventArr = [];
-    // for (const evt in event) {
-    //   eventArr.push(evt);
-    // }
-    // console.log(eventArr);
-    // console.log(`이벤트 유형 : ${event.type}`);
-    // console.log(`이벤트 발생 요소 : ${event.target}`);
-    
-    // console.log(`event.target 내에 속성 확인하기`);
-    // for (const item in event.target) {
-    //   console.log(item);
-    // }
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedItem, setSelectedItem] = useState(null);
 
-    const target_id = event.target.id;
-    const target_value = event.target.value;
+  const breadList = [
+    { name: "프렌치 바게트", image: "/images/french_baguette_01.png" },
+    { name: "크로와상", image: "/images/croissant_03.png" },
+    { name: "브리오슈", image: "/images/brioche_04.png" },
+    { name: "치아바타", image: "/images/ciabatta_01.png" },
+  ];
 
-    if (target_id === "input_box") {
-      console.log(`입력 상자 내용 : ${target_value}`);    
-    
-    } else if (target_id === "menu_select") {
-      console.log(`선택된 콤보 상자 값 : ${target_value}`);
-    
-      if (target_value !== '-') {
-        document.getElementById('image01').src = target_value;    
-      } else {
-        document.getElementById('image01').src = "";
-        alert('보여줄 이미지를 선택해 주셔야 합니다.');
-      }
-    
-    } else {
+  const coffeeList = [
+    { name: "아메리카노", image: "/images/americano03.png" },
+    { name: "카푸치노", image: "/images/cappuccino02.png" },
+    { name: "바닐라 라떼", image: "/images/vanilla_latte_01.png" },
+  ];
 
-    }
+  const handleSelectChange = (e) => {
+    setSelectedCategory(e.target.value);
+    setSelectedItem(null); // 항목 초기화
+  };
 
-  }
+  const handleItemClick = (item) => {
+    alert(item.name);
+    setSelectedItem(item); // 이미지 표시
+  };
+
+  const renderList = () => {
+    const list = selectedCategory === '빵' ? breadList : coffeeList;
+    const ListTag = selectedCategory === '빵' ? 'ul' : 'ol';
+
+    return (
+      <ListTag style={{ cursor: 'pointer', backgroundColor: '#f0f0f0' }}>
+        {list.map((item) => (
+          <li key={item.name} onClick={() => handleItemClick(item)}>
+            {item.name}
+          </li>
+        ))}
+      </ListTag>
+    );
+  };
 
   return (
-    <div className="App">
-      <h2>Change 이벤트</h2>
-      <input id="input_box" onChange={ChangeEvent} />
-      <br />
-      <select id="menu_select" onChange={ChangeEvent}>
-        <option value="-">항목을 선택해 주세요.</option>
-        <option value="/americano01_bigsize.png">아메리카노</option>
-        <option value="/french_baguette_01_bigsize.png">프렌치 바게트</option>
-        <option value="/croissant_03_bigsize.png">크로아상</option>
-        <option value="/brioche_04_bigsize.png">브리오슈</option>
+    <div>
+      <h2>메뉴를 선택해주세요.</h2>
+
+      <select onChange={handleSelectChange} defaultValue="">
+        <option value="" disabled>선택</option>
+        <option value="빵">빵</option>
+        <option value="음료수">음료수</option>
       </select>
       <br />
-      {/* alt : alternative(대안). 사진이 없을 시 출력될 대안 */}
-      <img id="image01" src="" alt="NoImage" width="200" height="200" />
+      <div id="selectCategory">
+        {selectedCategory && renderList()}
+      </div>
+      <br />
+      {selectedItem && (
+        <div id="selectItem">
+          <h3>선택된 항목: {selectedItem.name}</h3>
+          <img src={selectedItem.image} alt={selectedItem.name} style={{ width: "150px", height: "150px"}} />
+        </div>
+      )}
     </div>
   );
 }
