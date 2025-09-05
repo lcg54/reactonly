@@ -16,6 +16,11 @@ import AppUseProps from '../components/ch03.react_component/use_props';
 import AppArrayAndTable from '../components/ch03.react_component/array_and_table_01';
 import AppArrayAndTable2 from '../components/ch03.react_component/array_and_table_02';
 
+import AppClickEvent from '../components/ch04.event_handling/click_event';
+import AppChangeEvent from '../components/ch04.event_handling/change_event';
+import AppMouseEvent from '../components/ch04.event_handling/mouse_event';
+import AppKeyboardEvent from '../components/ch04.event_handling/keyboard_event';
+
 // export 키워드는 외부에서 참조 가능하도록 길을 틔워줌
 export const menuData = [
   {
@@ -42,5 +47,13 @@ export const menuData = [
       { path: '/array_and_table_02', label: '테이블 만들기 02', element: <AppArrayAndTable2 /> },
     ]
   },
-  // 여기에 4장, 5장... 내용을 계속 추가하면 됩니다.
+  {
+    chapter: "ch04. Event",
+    items: [
+      { path: '/click_event', label: '클릭 이벤트', element: <AppClickEvent /> },
+      { path: '/change_event', label: '체인지 이벤트', element: <AppChangeEvent /> },
+      { path: '/mouse_event', label: '마우스 이벤트', element: <AppMouseEvent /> },
+      { path: '/keyboard_event', label: '키보드 이벤트', element: <AppKeyboardEvent /> },
+    ]
+  },
 ];

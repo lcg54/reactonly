@@ -1,11 +1,10 @@
-import Book from './ui/BoardList01';
-import Member from './ui/MemberList01';
+import Board from "./ui/BoardList01";
+import Member from "./ui/MemberList01";
 
 function App() {
-
   return (
     <div className="App">
-      <Book />
+      <Board />
       <Member />
     </div>
   );

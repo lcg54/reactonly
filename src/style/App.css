@@ -5,8 +5,8 @@
 }
 
 img {
-  width: 150px;
-  height: 150px;
+  /* width: 150px;
+  height: 150px; */
   object-fit: fill;
   margin: 5px 5px 1px 5px; /* 위부터 시계방향 (상우하좌) */
 }

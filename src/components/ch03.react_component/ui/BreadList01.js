@@ -11,7 +11,7 @@ function App() {
     <tr key={bread.id}>
       <td>{bread.id}</td>
       <td>{bread.name}</td>
-      <td><img src={`http://localhost:3000/${ bread.image }`} /></td>
+      <td><img src={`http://localhost:3000/${ bread.image }`} width="150" height="150"/></td>
       <td>{bread.description}</td>
     </tr>
   ));

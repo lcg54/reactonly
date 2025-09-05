@@ -10,11 +10,11 @@ import "./style/App.css";
 
 const menu = (
   // 스타일은 css에서 따로 설정하는게 일반적
-  <table border="7">
+  <table border="7" width="600">
     <thead bgcolor="#cdfac7">
       <tr>
         {menuData.map((ch) => (
-          <th key={ch.chapter} style={{ paddingRight: "20px" }}>
+          <th key={ch.chapter}>
             <ul>
               <li>{ch.chapter}</li>
             </ul>
