@@ -21,6 +21,11 @@ import AppChangeEvent from '../components/ch04.event_handling/change_event';
 import AppMouseEvent from '../components/ch04.event_handling/mouse_event';
 import AppKeyboardEvent from '../components/ch04.event_handling/keyboard_event';
 import AppComboChange from '../components/ch04.event_handling/combo_change';
+import AppSubmitEvent from '../components/ch04.event_handling/submit_event';
+
+import AppUseState01 from '../components/ch05.hooks/use_state_01';
+import AppUseState02 from '../components/ch05.hooks/use_state_02';
+import AppUseState03 from '../components/ch05.hooks/use_state_03';
 
 // export 키워드는 외부에서 참조 가능하도록 길을 틔워줌
 export const menuData = [
@@ -56,6 +61,15 @@ export const menuData = [
       { path: '/mouse_event', label: '마우스 이벤트', element: <AppMouseEvent /> },
       { path: '/keyboard_event', label: '키보드 이벤트', element: <AppKeyboardEvent /> },
       { path: '/combo_change', label: '콤보 체인지', element: <AppComboChange /> },
+      { path: '/submit_event', label: '서브밋 이벤트', element: <AppSubmitEvent /> },
+    ]
+  },
+  {
+    chapter: "ch05. Event",
+    items: [
+      { path: '/use_state_01', label: '스테이트 실습 01', element: <AppUseState01 /> },
+      { path: '/use_state_02', label: '스테이트 실습 02', element: <AppUseState02 /> },
+      { path: '/use_state_03', label: '스테이트 실습 03', element: <AppUseState03 /> },
     ]
   },
 ];
