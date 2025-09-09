@@ -26,6 +26,8 @@ import AppSubmitEvent from '../components/ch04.event_handling/submit_event';
 import AppUseState01 from '../components/ch05.hooks/use_state_01';
 import AppUseState02 from '../components/ch05.hooks/use_state_02';
 import AppUseState03 from '../components/ch05.hooks/use_state_03';
+import AppUseState04 from '../components/ch05.hooks/use_state_04';
+import AppUseEffect01 from '../components/ch05.hooks/use_effect_01';
 
 // export 키워드는 외부에서 참조 가능하도록 길을 틔워줌
 export const menuData = [
@@ -70,6 +72,8 @@ export const menuData = [
       { path: '/use_state_01', label: '스테이트 실습 01', element: <AppUseState01 /> },
       { path: '/use_state_02', label: '스테이트 실습 02', element: <AppUseState02 /> },
       { path: '/use_state_03', label: '스테이트 실습 03', element: <AppUseState03 /> },
+      { path: '/use_state_04', label: '스테이트 실습 04', element: <AppUseState04 /> },
+      { path: '/use_effect_01', label: '이펙트 실습 01', element: <AppUseEffect01 /> },
     ]
   },
 ];
