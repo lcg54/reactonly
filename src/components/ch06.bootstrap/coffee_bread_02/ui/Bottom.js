@@ -1,5 +1,4 @@
-import { Button } from "react-bootstrap";
-import { ButtonGroup } from 'react-bootstrap';
+import { ButtonGroup, Button } from "react-bootstrap";
 
 function App() {
   const message = '카운터에서 주문해 주시고, 즐거운 시간 되시길 바랍니다.';

@@ -1,5 +1,4 @@
-import { Table } from "react-bootstrap";
-import { Image } from 'react-bootstrap';
+import { Table, Image } from "react-bootstrap";
 import './../css/Display.css';
 
 // 모드에 따라서 화면을 분기해주는 스위치 앱
