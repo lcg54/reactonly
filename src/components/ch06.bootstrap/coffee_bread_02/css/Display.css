@@ -5,6 +5,15 @@ img {
   margin: 5px;
 }
 
-.detailLeft{
+.leftOfTable{
   width: 40%;
+}
+
+.rightOfTable{
+  background-color: lavenderblush !important;
+  color: darkviolet !important;
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.6;
 }
