@@ -1,5 +1,5 @@
 .App {
-  text-align-last: left;
+  text-align: left;
   margin: 10px;
   margin-bottom: 20px;
 }
@@ -8,5 +8,5 @@ img {
   /* width: 150px;
   height: 150px; */
   object-fit: fill;
-  margin: 5px 5px 1px 5px; /* 위부터 시계방향 (상우하좌) */
+  margin: 5px 5px 0px 5px; /* 위부터 시계방향 (상우하좌) */
 }

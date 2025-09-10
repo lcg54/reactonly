@@ -8,6 +8,8 @@ import reportWebVitals from './reportWebVitals';
 // App.js 파일을 index.js 파일이 포함하고 있으므로 BrowserRouter는 index.js에 한번만 명시
 import { BrowserRouter } from 'react-router-dom';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 {/*

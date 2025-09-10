@@ -31,6 +31,9 @@ import AppUseEffect01 from '../components/ch05.hooks/use_effect_01';
 import AppUseEffect02 from '../components/ch05.hooks/use_effect_02';
 import AppUseEffect03 from '../components/ch05.hooks/use_effect_03';
 
+import AppITCafe01 from './../components/ch06.bootstrap/coffee_bread_01/main';
+import AppITCafe02 from './../components/ch06.bootstrap/coffee_bread_02/main';
+
 // export 키워드는 외부에서 참조 가능하도록 길을 틔워줌
 export const menuData = [
   {
@@ -69,7 +72,7 @@ export const menuData = [
     ]
   },
   {
-    chapter: "ch05. Event",
+    chapter: "ch05. Hooks",
     items: [
       { path: '/use_state_01', label: '스테이트 실습 01', element: <AppUseState01 /> },
       { path: '/use_state_02', label: '스테이트 실습 02', element: <AppUseState02 /> },
@@ -78,6 +81,13 @@ export const menuData = [
       { path: '/use_effect_01', label: '이펙트 실습 01', element: <AppUseEffect01 /> },
       { path: '/use_effect_02', label: '이펙트 실습 02', element: <AppUseEffect02 /> },
       { path: '/use_effect_03', label: '이펙트 실습 03', element: <AppUseEffect03 /> },
+    ]
+  },
+  {
+    chapter: "ch06. IT Cafe",
+    items: [
+      { path: '/coffee_bread_01', label: 'IT Cafe 01', element: <AppITCafe01 /> },
+      { path: '/coffee_bread_02', label: 'IT Cafe 02', element: <AppITCafe02 /> },
     ]
   },
 ];
