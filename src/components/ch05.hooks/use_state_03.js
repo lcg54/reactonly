@@ -9,9 +9,9 @@ function App() {
   const [car, setCar] = useState({
     model:'avante',
     color:'yellow',
-    year:'2024',
+    year:'2023',
     image:'avante',
-    comment:'나름 좋아요.'
+    comment:'구형차입니다.'
   });
 
   const ChangeTest = (e) => {
