@@ -15,7 +15,6 @@ function App() {
     { id: 4, name: "카푸치노", price: 4000, category: 'beverage', stock: 444, image: 'cappuccino02.png', description: "스팀밀크와 거품을 올린 것을 섞어 만든 이탈리아의 전통적인 커피 음료입니다." }
   ]);
 
-  // Switcher에서 모드에 따라 화면을 분기하기 위해 모드를 지정 (detail, insert, update, delete 등)
   const [mode, setMode] = useState('');
   
   const [clickedProductRowId, setClickedProductRowId] = useState(1);
