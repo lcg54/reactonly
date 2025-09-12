@@ -1,21 +1,16 @@
 import { Button, Form, InputGroup } from "react-bootstrap";
 
-import { useState } from "react";
-
 import "./../css/FormStyle.css";
 
 function App({ onSubmitCategoryAdd }) {
-
-  // update에서의 product와 마찬가지로 객체로 초기화
-  const [formData, setFormData] = useState({ engName: '', korName: '' }); 
-  
-  const InputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  }
-
   const SubmittedData = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // 기본 동작 막기
+
+    const formData = {
+      engName: e.target.engName.value,
+      korName: e.target.korName.value,
+    };
+
     onSubmitCategoryAdd(formData);
   };
 
@@ -26,24 +21,14 @@ function App({ onSubmitCategoryAdd }) {
       <form action="#" onSubmit={SubmittedData}>
         <InputGroup className="InputGroup">
           <InputGroup.Text className="InputGroupText">영문 이름</InputGroup.Text>
-          <Form.Control
-            type="text"
-            name="engName"
-            onChange={InputChange}
-            value={formData.engName}
-          ></Form.Control>
+          <Form.Control type="text" name="engName" />
         </InputGroup>
 
         <InputGroup className="InputGroup">
           <InputGroup.Text className="InputGroupText">한글 이름</InputGroup.Text>
-          <Form.Control
-            type="text"
-            name="korName"
-            onChange={InputChange}
-            value={formData.korName}
-          ></Form.Control>
+          <Form.Control type="text" name="korName" />
         </InputGroup>
-        
+
         <div className="d-grid gap-2">
           <Button type="submit" variant="info">추가</Button>
         </div>

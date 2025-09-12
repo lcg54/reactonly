@@ -6,7 +6,8 @@ import "./../css/FormStyle.css";
 
 function App({ product, onSubmitUpdate, categories }) {
   
-  const [formData, setFormData] = useState(product);
+  // 얘도 Create랑 마찬가지로 입력값 실시간 반영이 아닌 버튼 누를 때 반영이라 사실 useState 안 써도 되긴 함 
+  const [formData, setFormData] = useState({...product, category: "-"}); // 카테고리의 초기값은 "-" 지정
   
   const InputChange = (e) => {
     const { name, value } = e.target;

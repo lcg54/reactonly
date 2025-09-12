@@ -3,9 +3,17 @@ import { Button, Form, InputGroup } from "react-bootstrap";
 import "./../css/FormStyle.css";
 
 function App({ onSubmitInsert, categories }) {
+  
   const SubmittedData = (e) => {
     e.preventDefault(); // 기본 동작 막기
-    const formData = e.target;
+    const formData = {
+      name: e.target.name.value,
+      price: Number(e.target.price.value),
+      category: e.target.category.value,
+      stock: Number(e.target.stock.value),
+      image: e.target.image.value,
+      description: e.target.description.value,
+    };
     onSubmitInsert(formData);
   };
 
@@ -27,7 +35,7 @@ function App({ onSubmitInsert, categories }) {
         <InputGroup className="InputGroup">
           <InputGroup.Text className="InputGroupText">카테고리</InputGroup.Text>
           <Form.Select name="category">
-            <option value="-" disabled selected>--카테고리를 선택해 주세요--</option>
+            <option value="-" disabled selected/*selected: 정적 상태에서 초기값 지정. useState에선 불가*/>--카테고리를 선택해 주세요--</option>
               {categories.map(category => (
                 <option key={category.engName} value={category.engName}>{category.korName}</option>
               ))}

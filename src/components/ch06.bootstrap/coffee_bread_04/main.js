@@ -31,40 +31,23 @@ function App() {
 
   // (find) id가 같은 객체를 반환
   const selectedProduct = products.find(product => product.id === clickedProductId);
-  
-  const InsertData = (formData) => {
-    const id = Math.max(...products.map(product => product.id)) + 1;
-    const name = formData.name.value;
-    const price = Number(formData.price.value);
-    const category = formData.category.value;
-    const stock = Number(formData.stock.value);
-    const image = formData.image.value;
-    const description = formData.description.value;
-    
-    // 입력값이 숫자가 아닌 경우 Number 씌우면 NaN 반환
-    if (isNaN(price) || isNaN(stock)) {
-      alert('가격/재고는 숫자로 입력해 주세요.');
-      return; // 함수 종료
-    }
-    // 입력값이 비어있는 경우 falsy(false보다 더 포괄적) 반환
-    if (!name || !image || !description) {
-      alert('입력하지 않은 값이 존재합니다.');
-      return;
-    }
 
-    setProducts([...products, {id, name, price, category, stock, image, description}]);
+  
+  // 새 formData에 id가 없으므로 직접 추가
+  const InsertData = (formData) => {
+    setProducts([...products, {id: Math.max(...products.map(product => product.id)) + 1, ...formData}]);
     setMode('read');
     alert('상품 정보가 등록되었습니다.');
   }
 
-  // (map) id가 같으면 formData를, 다르면 기존 객체를 반환. formData.id는 disabled이므로 clickedProductId 사용
+  // (map) id가 같으면 formData를, 다르면 기존 객체의 배열을 반환. formData.id는 disabled이므로 clickedProductId 사용
   const UpdateData = (formData) => {
     setProducts(products.map(product => product.id === clickedProductId ? formData : product));
     setMode('detail');
     alert('상품 정보가 수정되었습니다.');
   }
 
-  // (filter) id가 다른 객체를 반환. map과 마찬가지로 배열로 반환
+  // (filter) id가 다른 객체의 배열을 반환
   const DeleteData = () => {
     setProducts(products.filter(product => product.id !== clickedProductId));
     setMode('read');
@@ -72,19 +55,19 @@ function App() {
   }
 
   const InsertCategory = (formData) => {
-    setCategories([...categories, {engName: formData.engName, korName: formData.korName}]);
+    setCategories([...categories, formData]);
     setMode('read');
     alert('카테고리가 추가되었습니다.');
   }
 
   const Switcher = () => {
     switch (mode) {
+      case 'read': return <div />;
       case 'detail': return <Display product={selectedProduct} categories={categories} />;
       case 'get_insert': return <CreateContent categories={categories} onSubmitInsert={InsertData} />;
       case 'get_update': return <UpdateContent product={selectedProduct} categories={categories} onSubmitUpdate={UpdateData} />;
       case 'get_delete': return <DeleteContent product={selectedProduct} categories={categories} onSubmitDelete={DeleteData} />;
       case 'get_category_add': return <CreateCategory onSubmitCategoryAdd={InsertCategory} />;
-      case 'read': return <div />;
       default: return null;
     }
   }
