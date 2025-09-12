@@ -4,13 +4,13 @@ import { useState } from "react";
 
 import "./../css/FormStyle.css";
 
-function App({ product, onSubmitUpdate }) {
+function App({ product, onSubmitUpdate, categories }) {
   
   const [formData, setFormData] = useState(product);
   
   const InputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(product => ({ ...product, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   }
 
   const SubmittedData = (e) => {
@@ -26,9 +26,8 @@ function App({ product, onSubmitUpdate }) {
         <InputGroup className="InputGroup">
           <InputGroup.Text className="InputGroupText">상품번호</InputGroup.Text>
           <Form.Control
-            type="text"
-            name="name"
-            onChange={InputChange}
+            type="number"
+            name="id"
             value={formData.id}
             disabled/*disabled된 값은 안넘어감*/
           ></Form.Control>
@@ -59,10 +58,14 @@ function App({ product, onSubmitUpdate }) {
           <Form.Select
             name="category"
             onChange={InputChange}
-          >{/*select에서는 value 대신 selected*/}
-            <option value="-" disabled selected>--카테고리를 선택해 주세요--</option>
-            <option value="bread" selected={formData.category==='bread'}>빵</option>
-            <option value="beverage" selected={formData.category==='beverage'}>음료수</option>
+            value={formData.category}
+          >
+            <option value="-" disabled>--카테고리를 선택해 주세요--</option>
+            {categories.map(category => (
+              <option key={category.engName} value={category.engName}>
+                {category.korName}
+              </option>
+            ))}
           </Form.Select>
         </InputGroup>
 

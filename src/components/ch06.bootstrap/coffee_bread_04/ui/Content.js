@@ -1,6 +1,6 @@
 import { Table } from 'react-bootstrap';
 
-function App({ products, onClickToGetId, onClickToContent }) {
+function App({ products, categories, onClickToGetId, onClickToContent }) {
   
   const ProductList = () => {
 
@@ -17,7 +17,7 @@ function App({ products, onClickToGetId, onClickToContent }) {
             <tr key={product.id} onClick={() => handleClick(product.id)}>
               <td>{product.name}</td>
               <td>{Number(product.price).toLocaleString()} 원</td>{/* 넘버로 바꾼 후 3자리마다 콤마 */}
-              <td>{product.category === 'bread' ? '빵' : '음료수'}</td>
+              <td>{categories.find(category => category.engName === product.category)?.korName}</td>{/* 카테고리 영문명과 비교하여 같으면 한글명 반환 */}
             </tr>
           ))}
         </tbody>

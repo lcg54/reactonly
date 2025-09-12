@@ -5,7 +5,12 @@ import { Card } from "react-bootstrap";
 import Top from "./ui/Top";
 import Content from "./ui/Content";
 import Bottom from "./ui/Bottom";
-import Switcher from "./ui/Switcher";
+
+import Display from './ui/Display';
+import CreateContent from './ui/CreateContent';
+import UpdateContent from './ui/UpdateContent';
+import DeleteContent from './ui/DeleteContent';
+import CreateCategory from './ui/CreateCategory';
 
 function App() {
   const [products, setProducts] = useState([
@@ -15,28 +20,73 @@ function App() {
     { id: 4, name: "카푸치노", price: 4000, category: 'beverage', stock: 444, image: 'cappuccino02.png', description: "스팀밀크와 거품을 올린 것을 섞어 만든 이탈리아의 전통적인 커피 음료입니다." }
   ]);
 
-  const [mode, setMode] = useState('');
-  
-  const [clickedProductRowId, setClickedProductRowId] = useState(1);
-  
-  // products의 객체들과 비교하여 id가 같은 객체를 할당. map과 마찬가지로 배열로 반환되므로, [0]으로 첫번째 항목을 반환
-  const selectedProduct = products.filter(product => product.id === clickedProductRowId)[0];
+  const [categories, setCategories] = useState([
+    { engName: 'bread', korName: '빵' },
+    { engName: 'beverage', korName: '음료수' },
+  ]);
 
+  const [mode, setMode] = useState('read');
+
+  const [clickedProductId, setClickedProductId] = useState(1);
+
+  // (find) id가 같은 객체를 반환
+  const selectedProduct = products.find(product => product.id === clickedProductId);
+  
   const InsertData = (formData) => {
-    setProducts([...products, {
-      id: products.length + 1,
-      name: formData.name.value,
-      price: Number(formData.price.value),
-      category: formData.category.value,
-      stock: Number(formData.stock.value),
-      image: formData.image.value,
-      description: formData.description.value,
-    }]);
+    const id = Math.max(...products.map(product => product.id)) + 1;
+    const name = formData.name.value;
+    const price = Number(formData.price.value);
+    const category = formData.category.value;
+    const stock = Number(formData.stock.value);
+    const image = formData.image.value;
+    const description = formData.description.value;
+    
+    // 입력값이 숫자가 아닌 경우 Number 씌우면 NaN 반환
+    if (isNaN(price) || isNaN(stock)) {
+      alert('가격/재고는 숫자로 입력해 주세요.');
+      return; // 함수 종료
+    }
+    // 입력값이 비어있는 경우 falsy(false보다 더 포괄적) 반환
+    if (!name || !image || !description) {
+      alert('입력하지 않은 값이 존재합니다.');
+      return;
+    }
+
+    setProducts([...products, {id, name, price, category, stock, image, description}]);
+    setMode('read');
+    alert('상품 정보가 등록되었습니다.');
   }
 
-  // products의 객체들과 비교하여 id가 같으면 formData를, 다르면 기존 객체를 할당. formData의 id는 disabled이므로 selectedProduct를 사용
+  // (map) id가 같으면 formData를, 다르면 기존 객체를 반환. formData.id는 disabled이므로 clickedProductId 사용
   const UpdateData = (formData) => {
-    setProducts(products.map(product => product.id === selectedProduct.id ? formData : product));
+    setProducts(products.map(product => product.id === clickedProductId ? formData : product));
+    setMode('detail');
+    alert('상품 정보가 수정되었습니다.');
+  }
+
+  // (filter) id가 다른 객체를 반환. map과 마찬가지로 배열로 반환
+  const DeleteData = () => {
+    setProducts(products.filter(product => product.id !== clickedProductId));
+    setMode('read');
+    alert('상품 정보가 삭제되었습니다.');
+  }
+
+  const InsertCategory = (formData) => {
+    setCategories([...categories, {engName: formData.engName, korName: formData.korName}]);
+    setMode('read');
+    alert('카테고리가 추가되었습니다.');
+  }
+
+  const Switcher = () => {
+    switch (mode) {
+      case 'detail': return <Display product={selectedProduct} categories={categories} />;
+      case 'get_insert': return <CreateContent categories={categories} onSubmitInsert={InsertData} />;
+      case 'get_update': return <UpdateContent product={selectedProduct} categories={categories} onSubmitUpdate={UpdateData} />;
+      case 'get_delete': return <DeleteContent product={selectedProduct} categories={categories} onSubmitDelete={DeleteData} />;
+      case 'get_category_add': return <CreateCategory onSubmitCategoryAdd={InsertCategory} />;
+      case 'read': return <div />;
+      default: return null;
+    }
   }
 
   return (
@@ -46,21 +96,20 @@ function App() {
         <Card.Header>
           <Top />
         </Card.Header>
+
         <Card.Body>
           <Content
             products={products}
-            onClickToGetId={id => setClickedProductRowId(id)}
+            categories={categories}
+            onClickToGetId={id => setClickedProductId(id)}
             onClickToContent={mode => setMode(mode)}
           />
         </Card.Body>
+
         <Card.Body>
-          <Switcher
-            mode={mode}
-            product={selectedProduct}
-            onSubmitInsert={InsertData}
-            onSubmitUpdate={UpdateData}
-          />
+          <Switcher />
         </Card.Body>
+
         <Card.Footer>
           <Bottom
             onClickToBottom={mode => setMode(mode)}
