@@ -79,7 +79,6 @@ function App() {
         <Card.Header>
           <Top />
         </Card.Header>
-
         <Card.Body>
           <Content
             products={products}
@@ -88,11 +87,9 @@ function App() {
             onClickToContent={mode => setMode(mode)}
           />
         </Card.Body>
-
         <Card.Body>
           <Switcher />
         </Card.Body>
-
         <Card.Footer>
           <Bottom
             onClickToBottom={mode => setMode(mode)}
