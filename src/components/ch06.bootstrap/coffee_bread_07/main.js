@@ -39,7 +39,7 @@ function App() {
 
   const [clickedProductId, setClickedProductId] = useState(1);
 
-  // (find) id가 같은 '객체'를 반환
+  // (.find) id가 같은 '객체'를 반환
   const selectedProduct = products.find(product => product.id === clickedProductId);
   
 
@@ -50,14 +50,14 @@ function App() {
     alert('상품 정보가 등록되었습니다.');
   }
 
-  // (map) id가 같으면 formData를, 다르면 기존 객체를 '배열'로 반환
+  // (.map) id가 같으면 formData를, 다르면 기존 객체를 '배열'로 반환
   const UpdateData = (formData) => {
     setProducts(products.map(product => product.id === clickedProductId ? formData : product));
     setMode('detail');
     alert('상품 정보가 수정되었습니다.');
   }
 
-  // (filter) id가 다른 객체를 '배열'로 반환
+  // (.filter) id가 다른 객체를 '배열'로 반환
   const DeleteData = () => {
     setProducts(products.filter(product => product.id !== clickedProductId));
     setMode('read');
@@ -70,6 +70,7 @@ function App() {
     alert('카테고리가 추가되었습니다.');
   }
 
+  // (.sort(a,b)) 배열을 오름차순/내림차순으로 정렬하여 반환 
   const SortProducts = (formData) => {
     setOrderinfo(formData);
     setProducts([...products].sort((a, b) => {
