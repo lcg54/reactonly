@@ -35,6 +35,8 @@ import AppITCafe01 from './../components/ch06.bootstrap/coffee_bread_01/main';
 import AppITCafe02 from './../components/ch06.bootstrap/coffee_bread_02/main';
 import AppITCafe03 from './../components/ch06.bootstrap/coffee_bread_03/main';
 import AppITCafe04 from './../components/ch06.bootstrap/coffee_bread_04/main';
+import AppITCafe06 from './../components/ch06.bootstrap/coffee_bread_06/main';
+import AppITCafe07 from './../components/ch06.bootstrap/coffee_bread_07/main';
 
 // export 키워드는 외부에서 참조 가능하도록 길을 틔워줌
 export const menuData = [
@@ -92,6 +94,8 @@ export const menuData = [
       { path: '/coffee_bread_02', label: 'IT Cafe 02', element: <AppITCafe02 /> },
       { path: '/coffee_bread_03', label: 'IT Cafe 03', element: <AppITCafe03 /> },
       { path: '/coffee_bread_04', label: 'IT Cafe 04', element: <AppITCafe04 /> },
+      { path: '/coffee_bread_06', label: 'IT Cafe 06', element: <AppITCafe06 /> },
+      { path: '/coffee_bread_07', label: 'IT Cafe 07', element: <AppITCafe07 /> },
     ]
   },
 ];

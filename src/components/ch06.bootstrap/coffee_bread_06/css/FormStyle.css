@@ -1,0 +1,11 @@
+.InputGroup {
+  margin-bottom: 12px;
+}
+
+.InputGroupText {
+  min-width: 120px;  /* 라벨 폭 고정 */
+  font-weight: 600;
+  background-color: #f8f9fa;
+  color: #333;
+  border-radius: 0.5rem 0 0 0.5rem;  /* 왼쪽만 둥글게 */
+}

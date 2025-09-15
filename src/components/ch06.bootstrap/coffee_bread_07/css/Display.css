@@ -1,0 +1,23 @@
+img {
+  width: 202px;
+  height: 200px;
+  object-fit: fill;
+  margin: 5px;
+}
+
+.leftOfTable{
+  width: 40%;
+}
+
+.middleOfTable{
+  width: 230px;
+}
+
+.rightOfTable{
+  background-color: lavenderblush !important;
+  color: darkviolet !important;
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.6;
+}
