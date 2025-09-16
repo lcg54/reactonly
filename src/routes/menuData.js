@@ -1,5 +1,15 @@
 // import 앱명 from '경로/파일명'
 // . = 현재폴더, .. = 상위폴더
+import AppMakeArray01 from './../components/ch01.react_basic/make_array_01';
+import AppMathObject01 from './../components/ch01.react_basic/math_object_01';
+import AppIfExercise from './../components/ch01.react_basic/if_exercise';
+import AppSwitchExercise from './../components/ch01.react_basic/switch_exercise';
+import AppTypeOfNumber from './../components/ch01.react_basic/typeof_number';
+import AppFormExam from './../components/ch01.react_basic/form_exam';
+import AppListExam from './../components/ch01.react_basic/list_exam';
+import AppTableExam from './../components/ch01.react_basic/table_exam';
+import AppEtcExam from './../components/ch01.react_basic/etc_exam';
+
 import AppLetConst from '../components/ch02.es6_syntax/let_const';
 import AppTemplateString from '../components/ch02.es6_syntax/template_string';
 import AppSubjectList from '../components/ch02.es6_syntax/make_subject_list';
@@ -40,6 +50,20 @@ import AppITCafe07 from './../components/ch06.bootstrap/coffee_bread_07/main';
 
 // export 키워드는 외부에서 참조 가능하도록 길을 틔워줌
 export const menuData = [
+  {
+    chapter: "ch01. Basic",
+    items: [
+      { path: '/make_array_01', label: '배열 실습 01', element: <AppMakeArray01 /> },
+      { path: '/math_object_01', label: 'Math 객체 실습 01', element: <AppMathObject01 /> },
+      { path: '/if_exercise', label: 'If 구문 실습', element: <AppIfExercise /> },
+      { path: '/switch_exercise', label: 'Switch 구문 실습', element: <AppSwitchExercise /> },
+      { path: '/typeof_number', label: 'Typeof와 Number 실습', element: <AppTypeOfNumber /> },
+      { path: '/form_exam', label: 'Form 양식 실습', element: <AppFormExam /> },
+      { path: '/list_exam', label: '목록(ol, ul) 실습', element: <AppListExam /> },
+      { path: '/table_exam', label: '테이블 실습', element: <AppTableExam /> },
+      { path: '/etc_exam', label: '기타 실습', element: <AppEtcExam /> },
+    ]
+  },
   {
     chapter: "ch02. ECMAScript",
     items: [

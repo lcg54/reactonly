@@ -27,7 +27,7 @@ function App({ products, categories, getIdByClick, onClickToContent, orderInfo, 
           <tr>
             <td width="1%" valign='middle'>{/* 왼쪽에 둘다 붙이려고 너비지정 (정석적인 방법은 아님) */}
               <Dropdown onClick={handleOrderByClick}>
-                <Dropdown.Toggle variant="primary">
+                <Dropdown.Toggle variant="outline-primary">
                   정렬 기준 : {orderInfo.column === "price" ? "가격" : orderInfo.column === "name" ? "이름" : "카테고리"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -39,8 +39,8 @@ function App({ products, categories, getIdByClick, onClickToContent, orderInfo, 
             </td>
             <td width="1%" valign='middle'>
               <Dropdown onClick={handleOrderByClick}>
-                <Dropdown.Toggle variant="primary">
-                  순서 : {orderInfo.direction === "asc" ? "오름차순" : "내림차순"}
+                <Dropdown.Toggle variant="outline-primary">
+                  정렬 방식 : {orderInfo.direction === "asc" ? "오름차순" : "내림차순"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item id="asc">오름차순</Dropdown.Item>
@@ -48,15 +48,15 @@ function App({ products, categories, getIdByClick, onClickToContent, orderInfo, 
                 </Dropdown.Menu>
               </Dropdown>
             </td>
-            {/* <td valign='middle'>
+            <td valign='middle'>
               <ListGroup horizontal>
                 <ListGroup.Item>정렬할 컬럼 : {orderInfo.column === "price" ? "가격" : orderInfo.column === "name" ? "이름" : "카테고리"}</ListGroup.Item>
                 <ListGroup.Item>정렬 방식 : {orderInfo.direction === "asc" ? "오름차순" : "내림차순"}</ListGroup.Item>
               </ListGroup>
-            </td> */}
+            </td>
             <td>
               <Form.Select onChange={(e) => selectCategoryByClick(e.target.value)}>
-                <option value="all">전체 카테고리</option>
+                <option value="all">전체보기</option>
                   {categories.map(category =>
                     <option key={category.engName} value={category.engName}>{category.korName}</option>
                   )}

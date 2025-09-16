@@ -89,11 +89,9 @@ function App() {
   }
   
   // 카테고리 선택에 따라, filteredProducts에 원본 products 또는 해당 카테고리의 products를 대입
-  const filteredProducts = selectedCategory === "all"
-  ? products
-  : products.filter(product => product.category === selectedCategory);
+  const filteredProducts = selectedCategory === "all" ? products : products.filter(product => product.category === selectedCategory);
   
-
+  
   const Switcher = () => {
     switch (mode) {
       case 'read': return <div />;
